@@ -9,15 +9,6 @@ module.exports = {
         clean: true,
         path: path.join(__dirname, 'dist'),
     },
-    resolve: {
-        fallback: {
-            "fs": false,
-            "buffer": require.resolve('buffer'),
-            "path": require.resolve("path-browserify"),
-            "stream": require.resolve('stream-browserify'),
-            "crypto": require.resolve("crypto-browserify"),
-        }
-    },
     devServer: {
         static: {
             directory: path.join(__dirname, 'public'),
