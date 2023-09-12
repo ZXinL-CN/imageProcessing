@@ -16,7 +16,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "browser-tiff.js": "^1.0.1"
+    "browser-tiff.js": "^1.0.1",
+    "utif": "^3.1.0"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
