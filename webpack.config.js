@@ -3,8 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+    resolve:{
+        extensions: ['.ts', '.js']
+    },
     mode: 'development',
-    entry: './src/main.js',
+    entry: './src/main.ts',
     output: {
         clean: true,
         path: path.join(__dirname, 'dist'),
@@ -27,8 +30,12 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.(png|jpg|jpeg|gif|tif)$/i,
+                test: /\.(png|jpg|jpeg|gif|tif)$/i,
                 type: 'asset/resource',
+            },
+            {
+                test: /\.ts$/i,
+                use: 'ts-loader',
             }
         ]
     },

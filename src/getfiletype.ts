@@ -1,9 +1,9 @@
 import { filetypes } from './filetypes';
 
 const upload = document.getElementById('upload');
-upload.addEventListener('change', handleFileUpload);
+upload?.addEventListener('change', handleFileUpload);
 
-function handleFileUpload(e) {
+function handleFileUpload(e: any): any {
     const file = e.target.files[0];
     console.log(file);
     const fileReader = new FileReader();
@@ -11,18 +11,18 @@ function handleFileUpload(e) {
     fileReader.onload = handleFileLoad;
 }
 
-function handleFileLoad(e) {
+function handleFileLoad(e: any): any {
     const buffer = e.target.result;
     const header32 = getHeaders(buffer).substring(0, 32 * 2);
     console.log(getType(header32));
 }
 
-function getHeaders(buffer) {
+function getHeaders(buffer: Iterable<number>) {
     return Array.from(new Uint8Array(buffer)).map(byte => byte.toString(16).padStart(2, '0')).join('');
 }
 
 function getType(headers = '') {
-    for (const [type,pattern] of Object.entries(filetypes)) {
+    for (const [type, pattern] of Object.entries(filetypes)) {
         const regex = new RegExp(pattern);
         if (regex.test(headers)) {
             return type;
