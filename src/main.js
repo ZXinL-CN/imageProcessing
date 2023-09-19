@@ -1,4 +1,4 @@
 
 // import './tiff';
-import './filetype';
+import './getfiletype';
 
