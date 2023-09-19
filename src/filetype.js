@@ -1,7 +1,7 @@
 const filetypes = {
     "474946383761": "image/gif",
     "474946383961": "image/gif",
-    "89504e470d0a1a0a": "image/png",
+    "89504e47d0a01aa0": "image/png",
     "ffd8": "image/jpeg",
     "52494646xxxxxx57454250": "image/webp",
     "52494646xxxxxx4156": "video/avi",
@@ -31,12 +31,14 @@ function getHeaders(buffer) {
 }
 
 function getType(headers = '') {
+    const header2 = headers.substring(0, 2 * 2);
     const header3 = headers.substring(0, 3 * 2);
     const header4 = headers.substring(0, 4 * 2);
     const header6 = headers.substring(0, 6 * 2);
+    const header8 = headers.substring(0, 8 * 2);
     const header16 = headers.substring(0, 16 * 2);
-    console.log(header3, header4, header16);
-    let type = filetypes[header3] || filetypes[header4] || filetypes[header6] || filetypes[header16] || '';
+    console.log(header2, header3, header4, header6, header8, header16);
+    let type = filetypes[header2] || filetypes[header3] || filetypes[header4] || filetypes[header6] || filetypes[header8] || filetypes[header16] || '';
     if (!type) {
         Object.keys(filetypes).forEach((key) => {
             if (type) return;
