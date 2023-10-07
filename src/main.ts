@@ -1,6 +1,7 @@
 
 import './tiff';
 // import './getfiletype';
+import './origin-private-file-system';
 
 false && fetch('./public/014.tif')
     .then(response => {

@@ -4,7 +4,7 @@ import * as UTIF from 'utif';
 
 console.log('hello world!!!');
 
-fetch('./public/014.tif')
+fetch('./public/01.tif')
     .then(response => {
         console.log(response);
         return response.arrayBuffer()
